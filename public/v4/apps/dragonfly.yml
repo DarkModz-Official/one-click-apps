@@ -1,0 +1,29 @@
+captainVersion: 4
+version: '3.8'
+services:
+    $$cap_appname:
+        image: 'docker.dragonflydb.io/dragonflydb/dragonfly'
+        ulimits:
+            memlock: -1
+        volumes:
+            - $$cap_appname-data:/data
+        ports:
+            - '6379:6379'
+        caproverExtra:
+            containerHttpPort: '6379'
+caproverOneClickApp:
+    instructions:
+        start: |-
+            Dragonfly is an in-memory data store built for modern application workloads.
+
+            Fully compatible with Redis and Memcached APIs, Dragonfly requires no code changes to adopt. Compared to legacy in-memory datastores, Dragonfly delivers 25X more throughput, higher cache hit rates with lower tail latency, and can run on up to 80% less resources for the same sized workload.
+
+            More details: https://github.com/dragonflydb/dragonfly
+        end: |-
+            Dragonfly has been successfully deployed!
+
+            Please wait a minute. Dragonfly is starting.
+    displayName: Dragonfly
+    isOfficial: false
+    description: A data store built for modern workloads.
+    documentation: See https://www.dragonflydb.io/
